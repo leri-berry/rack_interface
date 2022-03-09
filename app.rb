@@ -1,5 +1,5 @@
 class App
-	
+
   def call(env)
      if env['REQUEST_PATH'] == "/time" && env['REQUEST_METHOD'] == "GET"
        acceptable_url(env)
@@ -10,7 +10,7 @@ class App
 
   private
 
-  def acceptable_format(env)
+  def acceptable_url(env)
     request = Rack::Request.new(env)
     date_object = TimeFormatter.new
     date_object.call(request.params['format'].split(","))
